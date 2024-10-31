@@ -1,12 +1,3 @@
-/*pathfinding algorithims usually follow the same principle of from the start point recurisvely checking adjacent positions
-My implementation is broadly as follows 
--checking possible next moves
--adding these next moves to a queue to be checked
--are you at the end point?
-    if not then remove item from queue, check next item in queue, which should be sorted by distance
-    if yes then return best distance
-*/
-
 const pathfind = (A, P, Q) => {
 
     const noOfRows = A.length;
@@ -60,10 +51,7 @@ const pathfind = (A, P, Q) => {
     }
     //otherwise it couldn't find a solution
     return null;
-
 }
-
-
 
 //data from the example 
 const A = [
