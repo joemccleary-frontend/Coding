@@ -79,3 +79,5 @@ const P = [0, 1];
 const Q = [3, 2]; 
 
 pathfind(A, P, Q)
+
+module.exports = pathfind;
