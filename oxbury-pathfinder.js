@@ -41,7 +41,6 @@ const pathfind = (A, P, Q) => {
         // is this the end?
         if (currentCheck[0] === Q[0] && currentCheck[1] === Q[1]) {
             //yes great we found the quickest way
-            console.log("quickest way is ", currentCheck)
             return currentCheck[2]
         } else {
             //add to visited
@@ -60,7 +59,6 @@ const pathfind = (A, P, Q) => {
         }
     }
     //otherwise it couldn't find a solution
-    console.log("couldn't find a solution!")
     return null;
 
 }
