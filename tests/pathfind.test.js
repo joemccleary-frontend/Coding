@@ -29,4 +29,18 @@ describe('Pathfinding Algorithm', () => {
 
         expect(pathfind(A, P, Q)).toBeNull();
     });
+
+    test('if the board is larger', () => {
+        const A = [
+            [true, true, true, true, true, true],
+            [false, false, false, false, false, true],
+            [true, true, true, true, true, true],
+            [true, true, true, true, true, true],
+            [true, true, true, true, true, true]
+        ];
+        const P = [0, 1]; 
+        const Q = [3, 2]; 
+
+        expect(pathfind(A, P, Q)).toBe(10); 
+    });
 });
