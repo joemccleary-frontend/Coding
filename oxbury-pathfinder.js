@@ -17,6 +17,21 @@ const pathfind = (A, P, Q) => {
     let queue = [[P[0], P[1], 0]];
     let visited = []
 
+    const validMove = (x, y) => {
+        //has it been visited
+        if (!visited.some(pos => pos[0] === x && pos[1] === y)) {
+            //is it on the board
+            if ((x >= 0 && x < noOfRows) && (y >= 0 && y < noOfColumns)) {
+                //is it passable
+                if (A[x][y] )
+                    return true
+            }
+            else {
+                return false
+            }
+        }
+    }
+
     //keep looping through the queue until we find a solution
     while (queue.length > 0) {
         //remove item to be checked from queue
@@ -37,7 +52,7 @@ const pathfind = (A, P, Q) => {
                 const newX = currentCheck[0] + move[0];
                 const newY = currentCheck[1] + move[1];
 
-                if (validMove(newX, newY, A, noOfRows, noOfColumns, visited)) {
+                if (validMove(newX, newY)) {
                     // Add to queue with updated distance
                     queue.push([newX, newY, currentCheck[2] + 1]);
                 }   
@@ -46,24 +61,11 @@ const pathfind = (A, P, Q) => {
     }
     //otherwise it couldn't find a solution
     console.log("couldn't find a solution!")
-    return false;
+    return null;
 
 }
 
-const validMove = (x, y, A, noOfRows, noOfColumns, visited) => {
-    //has it been visited
-    if (!visited.some(pos => pos[0] === x && pos[1] === y)) {
-        //is it on the board
-        if ((x >= 0 && x < noOfRows) && (y >= 0 && y < noOfColumns)) {
-            //is it passable
-            if (A[x][y] )
-                return true
-        }
-        else {
-            return false
-        }
-    }
-}
+
 
 //data from the example 
 const A = [
